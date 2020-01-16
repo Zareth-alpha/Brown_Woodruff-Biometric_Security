@@ -3,5 +3,4 @@
 
 This repository is for the Android Mobile application portion of our project.
 
-_coming May 2020_
-Distributed through Google Play
+_coming May 2020_: Distributed through Google Play
