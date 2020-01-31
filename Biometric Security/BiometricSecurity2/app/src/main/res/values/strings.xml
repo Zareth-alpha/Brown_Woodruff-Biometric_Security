@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">Biometric Security</string>
-    <string name="action_settings">Settings</string>
+    <string name="versionNum">Version\: 1.0</string>
+    <string name="menu_settings">Settings</string>
     <string name="search">Search</string>
     <string name="about">About</string>
     <string name="background">background</string>
+    <string name="details">This app is to help use the ease of biometrics in one\'s mobile device in conjunction with the following software to unlock the respective software in place of a password\:</string>
+    <string name="responsibility">USE THIS APPLICATION AND IT\'S AFFILIATED SOFTWARE AT YOUR OWN RISK.\n By using this software or its affiliated software, you release the developers from any liabiity related to the security of your accounts in conjunction with the use of this software.</string>
+    <string name="contact1">j.z.r.brown@asu.edu</string>
+    <string name="contact2">kmwoodr1@asu.edu</string>
+    <string name="h1Contact">Contact info\:</string>
 </resources>

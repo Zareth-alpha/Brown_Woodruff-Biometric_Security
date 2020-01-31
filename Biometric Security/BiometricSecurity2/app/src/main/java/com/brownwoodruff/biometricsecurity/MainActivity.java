@@ -1,5 +1,6 @@
 package com.brownwoodruff.biometricsecurity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -44,8 +45,20 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
 
-
-
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.menu_about:
+                //load about page.
+                Intent startAbout = new Intent(getApplicationContext(), About_Page.class);
+                startActivity(startAbout);
+                return true;
+            case R.id.menu_report:
+                //Load report page.
+                return true;
+            case R.id.menu_settings:
+                //Load settings pages.
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
