@@ -10,4 +10,17 @@
     <string name="contact1">j.z.r.brown@asu.edu</string>
     <string name="contact2">kmwoodr1@asu.edu</string>
     <string name="h1Contact">Contact info\:</string>
+    <string name="titleConfig">Configuration</string>
+    <string name="switchLinux">Linux Account</string>
+    <string name="switchFirefox">Firefox Account</string>
+    <string name="switchKeePassXC">KeePassXC Database</string>
+    <string name="h1AccountType">Accounts\:</string>
+    <string name="h1Authentication">Authentication Methods\:</string>
+    <string name="pinSwitch">Pin</string>
+    <string name="patternSwitch">Pattern</string>
+    <string name="passphraseSwitch">Pass Phrase</string>
+    <string name="faceSwitch">Facial Recognition</string>
+    <string name="fingerSwitch">Fingerprint</string>
+    <string name="saveSettings">save</string>
+
 </resources>

@@ -22,10 +22,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-
         }
+
+        //check if there are any saved configurations.
+        //initial configurations
 
 
     @Override
@@ -41,10 +41,6 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-
         switch (item.getItemId()) {
             case R.id.menu_about:
                 //load about page.
@@ -56,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.menu_settings:
                 //Load settings pages.
+                Intent startSettings = new Intent(getApplicationContext(), FirstConfig.class);
+                startActivity(startSettings);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstConfig">
+
+    <TextView
+        android:id="@+id/ConfigTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/titleConfig"
+        android:textAllCaps="true"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/LinuxSwitch"
+        android:layout_width="fill_parent"
+        android:layout_height="21dp"
+        android:background="#000000"
+        android:switchPadding="?attr/actionBarSize"
+        android:text="@string/switchLinux"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AccountHeader" />
+
+    <Switch
+        android:id="@+id/FirefoxSwitch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FF5722"
+        android:text="@string/switchFirefox"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/KeePassXCSwitch" />
+
+    <Switch
+        android:id="@+id/KeePassXCSwitch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#4CAF50"
+        android:switchPadding="?attr/actionBarSize"
+        android:text="@string/switchKeePassXC"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LinuxSwitch" />
+
+    <TextView
+        android:id="@+id/AccountHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/h1AccountType"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ConfigTitle" />
+
+    <TextView
+        android:id="@+id/AuthenticationHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/h1Authentication"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FirefoxSwitch" />
+
+    <Switch
+        android:id="@+id/pinSwitch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FF9800"
+        android:switchPadding="?attr/actionBarSize"
+        android:text="@string/pinSwitch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/patternSwitch" />
+
+    <Switch
+        android:id="@+id/patternSwitch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFC107"
+        android:text="@string/patternSwitch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/faceSwitch" />
+
+    <Switch
+        android:id="@+id/passPhraseSwitch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#009688"
+        android:text="@string/passphraseSwitch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fingerSwitch" />
+
+    <Switch
+        android:id="@+id/faceSwitch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFC107"
+        android:text="@string/faceSwitch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passPhraseSwitch" />
+
+    <Switch
+        android:id="@+id/fingerSwitch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#009688"
+        android:text="@string/fingerSwitch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AuthenticationHeader" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/saveSettings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pinSwitch" />
+</androidx.constraintlayout.widget.ConstraintLayout>
