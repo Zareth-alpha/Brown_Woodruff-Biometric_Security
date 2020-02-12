@@ -39,6 +39,7 @@
         android:background="#FF5722"
         android:text="@string/switchFirefox"
         android:textStyle="bold"
+        android:hint="This requires KeePassXC Database to remain on."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/KeePassXCSwitch" />
@@ -85,6 +86,7 @@
         android:background="#FF9800"
         android:switchPadding="?attr/actionBarSize"
         android:text="@string/pinSwitch"
+        android:hint="This is the weakest form of authentication, when used alone."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -135,7 +137,7 @@
         app:layout_constraintTop_toBottomOf="@+id/AuthenticationHeader" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/saveSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/saveSettings"
