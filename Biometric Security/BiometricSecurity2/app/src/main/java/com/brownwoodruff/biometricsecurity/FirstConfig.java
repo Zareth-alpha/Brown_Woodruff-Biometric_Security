@@ -21,6 +21,12 @@ public class FirstConfig extends AppCompatActivity {
         //https://abhiandroid.com/ui/switch
         final Switch keeSwitch = findViewById(R.id.KeePassXCSwitch);
         final Switch fireSwitch = findViewById(R.id.FirefoxSwitch);
+        final Switch linuxSwitch = findViewById(R.id.LinuxSwitch);
+        final Switch fingerSwitch = findViewById(R.id.fingerSwitch);
+        final Switch phraseSwitch = findViewById(R.id.passPhraseSwitch);
+        final Switch faceSwitch = findViewById(R.id.faceSwitch);
+        final Switch patternSwitch = findViewById(R.id.patternSwitch);
+        final Switch pinSwitch = findViewById(R.id.pinSwitch);
         Button saveSettings = findViewById(R.id.saveSettings);
         //If KeePass is not checked, then Firefox needs to be unchecked.
         keeSwitch.setOnClickListener(new View.OnClickListener() {
@@ -28,6 +34,9 @@ public class FirstConfig extends AppCompatActivity {
             public void onClick(View view) {
                 if (!(keeSwitch.isChecked())) {
                     fireSwitch.setChecked(false);
+                }
+                else if (keeSwitch.isChecked()) {
+                    linuxSwitch.setChecked(true);
                 }
             }
         });
@@ -37,38 +46,72 @@ public class FirstConfig extends AppCompatActivity {
             public void onClick(View view) {
                 if (fireSwitch.isChecked()) {
                     keeSwitch.setChecked(true);
+                    linuxSwitch.setChecked(true);
                 }
             }
         });
-        //alerts the user about invalid settings.
+        linuxSwitch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View view) {
+                if (!(linuxSwitch.isChecked())) {
+                    keeSwitch.setChecked(false);
+                    fireSwitch.setChecked(false);
+                }
+            }
+        });
+        //alerts the user about invalid settings. One of the authentications needs to be met.
         saveSettings.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                if (!(keeSwitch.isChecked()) && !(((Switch) findViewById(R.id.KeePassXCSwitch)).isChecked())) {
+                if (!(fingerSwitch.isChecked()) && !(patternSwitch.isChecked()) && !(faceSwitch.isChecked()) && !(phraseSwitch.isChecked()) && !(pinSwitch.isChecked())) {
                     //insert alert dialogue
                     //https://www.tutorialspoint.com/android/android_alert_dialoges.htm
-                    //WORK IN PROGRESS!
                         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(FirstConfig.this);
-                        alertDialogBuilder.setMessage("Are you sure, You wanted to make decision");
-                                alertDialogBuilder.setPositiveButton("yes",
+                        alertDialogBuilder.setMessage("You need an Authentication Method!");
+                                alertDialogBuilder.setPositiveButton("Choose method",
                                         new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface arg0, int arg1) {
-                                                Toast.makeText(FirstConfig.this,"You clicked yes button",Toast.LENGTH_LONG).show();
+                                                Toast.makeText(FirstConfig.this,"Please choose an Authentication Method.",Toast.LENGTH_LONG).show();
                                             }
                                         });
-
-                        alertDialogBuilder.setNegativeButton("No",new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                finish();
-                            }
-                        });
+                        alertDialogBuilder.setNegativeButton("Cancel and discard settings",new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Toast.makeText(FirstConfig.this, "settings were NOT saved", Toast.LENGTH_LONG).show();
+                                    finish();
+                                }
+                            });
 
                         AlertDialog alertDialog = alertDialogBuilder.create();
                         alertDialog.show();
                 }
+
+                if (!(fingerSwitch.isChecked()) && !(patternSwitch.isChecked()) && !(faceSwitch.isChecked()) && !(phraseSwitch.isChecked()) && (pinSwitch.isChecked())) {
+                    //insert alert dialogue
+                    //https://www.tutorialspoint.com/android/android_alert_dialoges.htm
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(FirstConfig.this);
+                    alertDialogBuilder.setMessage("Pin is the weakest Authentication method. Are you sure?");
+                    alertDialogBuilder.setPositiveButton("Select stronger method(s)",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface arg0, int arg1) {
+                                    Toast.makeText(FirstConfig.this,"Please choose a stronger Method.",Toast.LENGTH_LONG).show();
+                                }
+                            });
+                    alertDialogBuilder.setNegativeButton("save anyway",new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(FirstConfig.this, "Settings Saved", Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+                    });
+
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+                    alertDialog.show();
+                }
             }
         });
+
     }
 }
