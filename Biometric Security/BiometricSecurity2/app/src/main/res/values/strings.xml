@@ -22,5 +22,11 @@
     <string name="faceSwitch">Facial Recognition</string>
     <string name="fingerSwitch">Fingerprint</string>
     <string name="saveSettings">save</string>
+    <string name="passphrase">passphrase</string>
+    <string name="enter_your_passphrase">Enter your passphrase</string>
+    <string name="submit">Submit</string>
+    <string name="backgroundimage">backgroundImage</string>
+    <string name="this_requires_keepassxc_database_to_remain_on">This requires KeePassXC Database to remain on.</string>
+    <string name="this_is_the_weakest_form_of_authentication_when_used_alone">This is the weakest form of authentication, when used alone.</string>
 
 </resources>

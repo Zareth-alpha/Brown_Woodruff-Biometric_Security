@@ -17,6 +17,8 @@ public class FirstConfig extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_config);
 
+        /*read from a saved file if there is one!*/
+
         // initiate view's
         //https://abhiandroid.com/ui/switch
         final Switch keeSwitch = findViewById(R.id.KeePassXCSwitch);
@@ -103,6 +105,7 @@ public class FirstConfig extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Toast.makeText(FirstConfig.this, "Settings Saved", Toast.LENGTH_LONG).show();
+                            /*Here the settings need to be saved!*/
                             finish();
                         }
                     });

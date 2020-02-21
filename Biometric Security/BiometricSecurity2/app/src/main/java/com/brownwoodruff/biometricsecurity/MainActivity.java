@@ -25,7 +25,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //check if there are any saved configurations.
-        //initial configurations
+            //initial configurations
+            //or load the first of up to 5 authentication prompts.
+    //https://proandroiddev.com/5-steps-to-implement-biometric-authentication-in-android-dbeb825aeee8
 
 
     @Override
