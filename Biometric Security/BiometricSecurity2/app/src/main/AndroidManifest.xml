@@ -5,6 +5,8 @@
 
     <dist:module dist:instant="true" />
 
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PassphraseActivity"></activity>
+        <activity android:name=".PinActivity" />
+        <activity android:name=".PassphraseActivity" />
         <activity android:name=".FirstConfig" />
         <activity android:name=".About_Page" />
         <activity
