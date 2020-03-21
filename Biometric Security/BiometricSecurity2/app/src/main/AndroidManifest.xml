@@ -14,6 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".PatternActivity"></activity>
+        <activity android:name=".FingerScanActivity" />
         <activity android:name=".PinActivity" />
         <activity android:name=".PassphraseActivity" />
         <activity android:name=".FirstConfig" />
@@ -28,6 +30,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CreatePatternActivity"/>
+        <activity android:name=".InputPatternActivity"/>
+        <activity android:name=".ProgramActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"

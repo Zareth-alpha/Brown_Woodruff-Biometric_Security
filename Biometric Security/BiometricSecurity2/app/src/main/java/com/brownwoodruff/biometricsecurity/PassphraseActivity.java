@@ -1,3 +1,15 @@
+/*AUTHORS: Jonathan Brown & Khalil Woodruff
+ * DATE: 3/8/2020
+ * PROJECT: Brown_Woodruff-Biometric_Security
+ * API: 29
+ * DESCRIPTION: This activity prompts the user for a passphrase. This will be compared to the saved
+ * passphrase the user chooses.
+ *
+ * Intellectual contributions are from: Android Studio, Google, developer.android.com, Arizona State University,
+ * and
+ * Antinaa Murthy (https://proandroiddev.com/5-steps-to-implement-biometric-authentication-in-android-dbeb825aeee8)
+ *
+ */
 package com.brownwoodruff.biometricsecurity;
 
 import androidx.appcompat.app.AppCompatActivity;

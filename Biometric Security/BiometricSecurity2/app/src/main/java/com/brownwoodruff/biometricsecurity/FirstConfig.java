@@ -1,3 +1,17 @@
+/*AUTHORS: Jonathan Brown & Khalil Woodruff
+* DATE: 3/8/2020
+* PROJECT: Brown_Woodruff-Biometric_Security
+* API: 29
+* DESCRIPTION: This activity holds the configuration settings for the android-authentication-security
+* application that a user can set for how paranoi- I mean - how secure they wish to make their
+* authentication process from their mobile device.
+*
+*
+* Intellectual contributions are from: Android Studio, Google, developer.android.com, Arizona State University,
+* and
+* Antinaa Murthy (https://proandroiddev.com/5-steps-to-implement-biometric-authentication-in-android-dbeb825aeee8)
+*
+ */
 package com.brownwoodruff.biometricsecurity;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +23,8 @@ import android.widget.Button;
 import android.widget.Switch;
 import android.widget.Toast;
 import android.app.AlertDialog;
+
+ import com.brownwoodruff.biometricsecurity.R;
 
 public class FirstConfig extends AppCompatActivity {
 
@@ -113,6 +129,8 @@ public class FirstConfig extends AppCompatActivity {
                     AlertDialog alertDialog = alertDialogBuilder.create();
                     alertDialog.show();
                 }
+                Toast.makeText(FirstConfig.this, "Settings Saved", Toast.LENGTH_LONG).show();
+                finish();
             }
         });
 

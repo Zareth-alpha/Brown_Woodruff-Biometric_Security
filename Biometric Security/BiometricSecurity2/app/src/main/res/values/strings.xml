@@ -30,5 +30,8 @@
     <string name="this_is_the_weakest_form_of_authentication_when_used_alone">This is the weakest form of authentication, when used alone.</string>
     <string name="enter_your_pin">Enter your pin</string>
     <string name="standbyMessage">There are no authentication requests.</string>
+    <string name="authenticate">Authenticate</string>
+    <string name="create_pattern">Please enter a pattern to save.</string>
+    <string name="input_pattern">Please enter your pattern.</string>
 
 </resources>
