@@ -18,7 +18,7 @@
         <activity android:name=".FingerScanActivity" />
         <activity android:name=".PinActivity" />
         <activity android:name=".PassphraseActivity" />
-        <activity android:name=".FirstConfig" />
+        <activity android:name=".SettingsActivity" />
         <activity android:name=".About_Page" />
         <activity
             android:name=".MainActivity"

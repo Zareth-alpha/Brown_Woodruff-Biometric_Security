@@ -14,12 +14,8 @@
  */
 package com.brownwoodruff.biometricsecurity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -101,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.menu_settings:
                 //Load settings pages.
-                Intent startSettings = new Intent(getApplicationContext(), FirstConfig.class);
+                Intent startSettings = new Intent(getApplicationContext(), SettingsActivity.class);
                 startActivity(startSettings);
                 return true;
             default:

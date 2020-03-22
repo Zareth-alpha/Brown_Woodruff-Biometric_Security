@@ -24,9 +24,7 @@ import android.widget.Switch;
 import android.widget.Toast;
 import android.app.AlertDialog;
 
- import com.brownwoodruff.biometricsecurity.R;
-
-public class FirstConfig extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,19 +82,19 @@ public class FirstConfig extends AppCompatActivity {
                 if (!(fingerSwitch.isChecked()) && !(patternSwitch.isChecked()) && !(faceSwitch.isChecked()) && !(phraseSwitch.isChecked()) && !(pinSwitch.isChecked())) {
                     //insert alert dialogue
                     //https://www.tutorialspoint.com/android/android_alert_dialoges.htm
-                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(FirstConfig.this);
+                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(SettingsActivity.this);
                         alertDialogBuilder.setMessage("You need an Authentication Method!");
                                 alertDialogBuilder.setPositiveButton("Choose method",
                                         new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface arg0, int arg1) {
-                                                Toast.makeText(FirstConfig.this,"Please choose an Authentication Method.",Toast.LENGTH_LONG).show();
+                                                Toast.makeText(SettingsActivity.this,"Please choose an Authentication Method.",Toast.LENGTH_LONG).show();
                                             }
                                         });
                         alertDialogBuilder.setNegativeButton("Cancel and discard settings",new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    Toast.makeText(FirstConfig.this, "settings were NOT saved", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(SettingsActivity.this, "settings were NOT saved", Toast.LENGTH_LONG).show();
                                     finish();
                                 }
                             });
@@ -108,19 +106,19 @@ public class FirstConfig extends AppCompatActivity {
                 if (!(fingerSwitch.isChecked()) && !(patternSwitch.isChecked()) && !(faceSwitch.isChecked()) && !(phraseSwitch.isChecked()) && (pinSwitch.isChecked())) {
                     //insert alert dialogue
                     //https://www.tutorialspoint.com/android/android_alert_dialoges.htm
-                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(FirstConfig.this);
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(SettingsActivity.this);
                     alertDialogBuilder.setMessage("Pin is the weakest Authentication method. Are you sure?");
                     alertDialogBuilder.setPositiveButton("Select stronger method(s)",
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface arg0, int arg1) {
-                                    Toast.makeText(FirstConfig.this,"Please choose a stronger Method.",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(SettingsActivity.this,"Please choose a stronger Method.",Toast.LENGTH_LONG).show();
                                 }
                             });
                     alertDialogBuilder.setNegativeButton("save anyway",new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(FirstConfig.this, "Settings Saved", Toast.LENGTH_LONG).show();
+                            Toast.makeText(SettingsActivity.this, "Settings Saved", Toast.LENGTH_LONG).show();
                             /*Here the settings need to be saved!*/
                             finish();
                         }
@@ -129,7 +127,7 @@ public class FirstConfig extends AppCompatActivity {
                     AlertDialog alertDialog = alertDialogBuilder.create();
                     alertDialog.show();
                 }
-                Toast.makeText(FirstConfig.this, "Settings Saved", Toast.LENGTH_LONG).show();
+                Toast.makeText(SettingsActivity.this, "Settings Saved", Toast.LENGTH_LONG).show();
                 finish();
             }
         });
