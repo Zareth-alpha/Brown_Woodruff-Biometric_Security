@@ -1,3 +1,17 @@
+/*AUTHORS: Jonathan Brown & Khalil Woodruff
+ * DATE: 3/21/2020
+ * PROJECT: Brown_Woodruff-Biometric_Security
+ * API: 29
+ * DESCRIPTION: This is the Activity that handles validating a pattern for the user to authenticate.
+ *
+ *
+ * Intellectual contributions are from: Android Studio, Google, developer.android.com, Arizona State University,
+ * and
+ * Antinaa Murthy (https://proandroiddev.com/5-steps-to-implement-biometric-authentication-in-android-dbeb825aeee8)
+ * https://www.youtube.com/watch?v=BYYFelIdZsQ by Tihomir RAdeff
+ * https://github.com/aritraroy/PatternLockView by Aritra Roy
+ *
+ */
 package com.brownwoodruff.biometricsecurity;
 
 import android.content.Intent;
@@ -42,7 +56,7 @@ public class InputPatternActivity extends AppCompatActivity {
             @Override
             public void onComplete(List<PatternLockView.Dot> pattern) {
                 if(password.equals(PatternLockUtils.patternToString(mPatternLockView, pattern))){
-                    Intent intent = new Intent(getApplicationContext(), ProgramActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), PatternActivity.class);
                     startActivity(intent);
                     finish();
                 } else {

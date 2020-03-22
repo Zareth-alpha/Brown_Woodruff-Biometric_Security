@@ -1,6 +1,16 @@
-/*
-https://www.youtube.com/watch?v=BYYFelIdZsQ
-
+/*AUTHORS: Jonathan Brown & Khalil Woodruff
+ * DATE: 3/21/2020
+ * PROJECT: Brown_Woodruff-Biometric_Security
+ * API: 29
+ * DESCRIPTION: This is the Activity that handles creating a pattern for the user to authenticate.
+ *
+ *
+ * Intellectual contributions are from: Android Studio, Google, developer.android.com, Arizona State University,
+ * and
+ * Antinaa Murthy (https://proandroiddev.com/5-steps-to-implement-biometric-authentication-in-android-dbeb825aeee8)
+ * https://www.youtube.com/watch?v=BYYFelIdZsQ by Tihomir RAdeff
+ * https://github.com/aritraroy/PatternLockView by Aritra Roy
+ *
  */
 package com.brownwoodruff.biometricsecurity;
 
@@ -12,6 +22,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.brownwoodruff.biometricsecurity.CreatePatternActivity;
+import com.brownwoodruff.biometricsecurity.InputPatternActivity;
 import com.brownwoodruff.biometricsecurity.R;
 
 public class PatternActivity extends AppCompatActivity {

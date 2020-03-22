@@ -56,7 +56,7 @@ public class CreatePatternActivity extends AppCompatActivity {
                 editor.putString("password", PatternLockUtils.patternToString(mPatternLockView, pattern));
                 editor.apply();
 
-                Intent intent = new Intent(getApplicationContext(), ProgramActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PatternActivity.class);
                 startActivity(intent);
                 finish();
             }

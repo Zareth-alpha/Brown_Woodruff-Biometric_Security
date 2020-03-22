@@ -1,3 +1,17 @@
+/*AUTHORS: Jonathan Brown & Khalil Woodruff
+ * DATE: 3/21/2020
+ * PROJECT: Brown_Woodruff-Biometric_Security
+ * API: 29
+ * DESCRIPTION: This is a useless activity at this time.
+ *
+ *
+ * Intellectual contributions are from: Android Studio, Google, developer.android.com, Arizona State University,
+ * and
+ * Antinaa Murthy (https://proandroiddev.com/5-steps-to-implement-biometric-authentication-in-android-dbeb825aeee8)
+ * https://www.youtube.com/watch?v=BYYFelIdZsQ by Tihomir RAdeff
+ * https://github.com/aritraroy/PatternLockView by Aritra Roy
+ *
+ */
 package com.brownwoodruff.biometricsecurity;
 
 import android.os.Bundle;
