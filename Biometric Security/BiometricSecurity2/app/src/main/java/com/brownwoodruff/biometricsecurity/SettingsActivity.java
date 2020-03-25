@@ -17,6 +17,7 @@ package com.brownwoodruff.biometricsecurity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,23 +27,43 @@ import android.app.AlertDialog;
 
 public class SettingsActivity extends AppCompatActivity {
 
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String TEXT = "text";
+    public static final String SWITCH_LINUX = "switchLinux";
+    public static final String SWITCH_KEE = "switchKee";
+    public static final String SWITCH_FIRE = "switchFire";
+    public static final String SWITCH_FINGER = "switchFinger";
+    public static final String SWITCH_PHRASE = "switchPhrase";
+    public static final String SWITCH_FACE = "switchFace";
+    public static final String SWITCH_PATTERN = "switchPattern";
+    public static final String SWITCH_PIN = "switchPin";
+
+    private Switch keeSwitch;
+    private Switch fireSwitch;
+    private Switch linuxSwitch;
+    private Switch fingerSwitch;
+    private Switch phraseSwitch;
+    private Switch faceSwitch;
+    private Switch patternSwitch;
+    private Switch pinSwitch;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_first_config);
-
-        /*read from a saved file if there is one!*/
+        setContentView(R.layout.activity_settings);
 
         // initiate view's
         //https://abhiandroid.com/ui/switch
-        final Switch keeSwitch = findViewById(R.id.KeePassXCSwitch);
-        final Switch fireSwitch = findViewById(R.id.FirefoxSwitch);
-        final Switch linuxSwitch = findViewById(R.id.LinuxSwitch);
-        final Switch fingerSwitch = findViewById(R.id.fingerSwitch);
-        final Switch phraseSwitch = findViewById(R.id.passPhraseSwitch);
-        final Switch faceSwitch = findViewById(R.id.faceSwitch);
-        final Switch patternSwitch = findViewById(R.id.patternSwitch);
-        final Switch pinSwitch = findViewById(R.id.pinSwitch);
+        keeSwitch = findViewById(R.id.KeePassXCSwitch);
+        fireSwitch = findViewById(R.id.FirefoxSwitch);
+        linuxSwitch = findViewById(R.id.LinuxSwitch);
+        fingerSwitch = findViewById(R.id.fingerSwitch);
+        phraseSwitch = findViewById(R.id.passPhraseSwitch);
+        faceSwitch = findViewById(R.id.faceSwitch);
+        patternSwitch = findViewById(R.id.patternSwitch);
+        pinSwitch = findViewById(R.id.pinSwitch);
+
+
         Button saveSettings = findViewById(R.id.saveSettings);
         //If KeePass is not checked, then Firefox needs to be unchecked.
         keeSwitch.setOnClickListener(new View.OnClickListener() {
@@ -127,10 +148,40 @@ public class SettingsActivity extends AppCompatActivity {
                     AlertDialog alertDialog = alertDialogBuilder.create();
                     alertDialog.show();
                 }
+                saveData();
                 Toast.makeText(SettingsActivity.this, "Settings Saved", Toast.LENGTH_LONG).show();
                 finish();
             }
         });
+        loadData();
+    }
 
+    public void saveData() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        //editor.putString(TEXT, textView.getText().toString());
+        editor.putBoolean(SWITCH_FACE, faceSwitch.isChecked());
+        editor.putBoolean(SWITCH_FINGER, fingerSwitch.isChecked());
+        editor.putBoolean(SWITCH_KEE, keeSwitch.isChecked());
+        editor.putBoolean(SWITCH_FIRE, fireSwitch.isChecked());
+        editor.putBoolean(SWITCH_PATTERN, patternSwitch.isChecked());
+        editor.putBoolean(SWITCH_PIN, pinSwitch.isChecked());
+        editor.putBoolean(SWITCH_PHRASE, phraseSwitch.isChecked());
+        editor.putBoolean(SWITCH_LINUX, linuxSwitch.isChecked());
+
+        editor.apply();
+    }
+
+    public void loadData() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        faceSwitch.setChecked(sharedPreferences.getBoolean(SWITCH_FACE, false));
+        fingerSwitch.setChecked(sharedPreferences.getBoolean(SWITCH_FINGER, false));
+        keeSwitch.setChecked(sharedPreferences.getBoolean(SWITCH_KEE, false));
+        fireSwitch.setChecked(sharedPreferences.getBoolean(SWITCH_FIRE, false));
+        patternSwitch.setChecked(sharedPreferences.getBoolean(SWITCH_PATTERN, false));
+        pinSwitch.setChecked(sharedPreferences.getBoolean(SWITCH_PIN, false));
+        phraseSwitch.setChecked(sharedPreferences.getBoolean(SWITCH_PHRASE, false));
+        linuxSwitch.setChecked(sharedPreferences.getBoolean(SWITCH_LINUX, false));
     }
 }
