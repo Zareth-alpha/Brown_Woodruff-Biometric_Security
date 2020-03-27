@@ -37,6 +37,7 @@ public class FingerScanActivity extends AppCompatActivity {
     private Executor executor;
     private BiometricPrompt biometricPrompt;
     private BiometricPrompt.PromptInfo promptInfo;
+
     @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class FingerScanActivity extends AppCompatActivity {
         setContentView(R.layout.activity_finger_scan);
         executor = ContextCompat.getMainExecutor(this);
         biometricPrompt = new BiometricPrompt(FingerScanActivity.this,
-            executor, new BiometricPrompt.AuthenticationCallback() {
+                executor, new BiometricPrompt.AuthenticationCallback() {
             @Override
             public void onAuthenticationError(int errorCode,
                                               @NonNull CharSequence errString) {
@@ -66,8 +67,7 @@ public class FingerScanActivity extends AppCompatActivity {
             public void onAuthenticationFailed() {
                 super.onAuthenticationFailed();
                 Toast.makeText(getApplicationContext(), "Authentication failed",
-                        Toast.LENGTH_SHORT)
-                        .show();
+                        Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -82,10 +82,12 @@ public class FingerScanActivity extends AppCompatActivity {
         // if needed by your app.
         Button biometricLoginButton = findViewById(R.id.fingerActivityScanButton);
         biometricLoginButton.setOnClickListener(new View.OnClickListener() {
-                                                    @Override
-                                                    public void onClick(View v) {
-                                                        biometricPrompt.authenticate(promptInfo);
-                                                    }
-                                                });
-        }
+            @Override
+            public void onClick(View v) {
+                biometricPrompt.authenticate(promptInfo);
+            }
+        });
+
+        finish();
+    }
 }

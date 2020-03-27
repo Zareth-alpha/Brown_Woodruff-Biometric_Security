@@ -1,28 +1,17 @@
-/*AUTHORS: Jonathan Brown & Khalil Woodruff
- * DATE: 3/8/2020
- * PROJECT: Brown_Woodruff-Biometric_Security
- * API: 29
- * DESCRIPTION: This activity prompts the user for a passphrase. This will be compared to the saved
- * passphrase the user chooses.
- *
- * Intellectual contributions are from: Android Studio, Google, developer.android.com, Arizona State University,
- * and
- * Antinaa Murthy (https://proandroiddev.com/5-steps-to-implement-biometric-authentication-in-android-dbeb825aeee8)
- *
- */
 package com.brownwoodruff.biometricsecurity;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class PassphraseActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class CreatePassphraseActivity extends AppCompatActivity {
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String TEXT = "text";
 
@@ -43,6 +32,10 @@ public class PassphraseActivity extends AppCompatActivity {
         If there's nothing saved...
             create authentication phrase...
          */
+        current = loadData() ;
+        if (current.equals("")) {
+            enterNewPassphrase();
+        }
 
 
         /*
@@ -78,13 +71,13 @@ public class PassphraseActivity extends AppCompatActivity {
         return sharedPreferences.getString(TEXT, "");
     }
 
-    //Change the textView based on whether the user is updating the password or
-    //authenticating the password.
-    private void updateViews() {
+    private void enterNewPassphrase() {
+        String text = "Please enter a new Passphrase:";
+        textView.setText(text);
     }
 
-    public Boolean authenticate() {
-        Boolean authentication = false;
+    public boolean authenticate() {
+        boolean authentication = false;
         String test = editText.getText().toString();
         if(test.equals(loadData())) {
             authentication = true;

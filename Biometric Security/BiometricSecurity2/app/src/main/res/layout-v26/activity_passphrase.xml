@@ -7,20 +7,20 @@
     tools:context=".PassphraseActivity">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editTextPassphrase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="48dp"
         android:ems="10"
         android:hint="@string/passphrase"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/buttonPhrase"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:autofillHints="" />
 
     <TextView
-        android:id="@+id/phassActivityTitle"
+        android:id="@+id/passActivityTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enter_your_passphrase"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonPhrase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="260dp"

@@ -41,7 +41,7 @@ public class InputPatternActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("PREPS", 0);
         password = preferences.getString("password", "0");
 
-        mPatternLockView = (PatternLockView) findViewById(R.id.pattern_lock_view);
+        mPatternLockView = findViewById(R.id.pattern_lock_view);
         mPatternLockView.addPatternLockListener(new PatternLockViewListener() {
             @Override
             public void onStarted() {
@@ -56,8 +56,8 @@ public class InputPatternActivity extends AppCompatActivity {
             @Override
             public void onComplete(List<PatternLockView.Dot> pattern) {
                 if(password.equals(PatternLockUtils.patternToString(mPatternLockView, pattern))){
-                    Intent intent = new Intent(getApplicationContext(), PatternActivity.class);
-                    startActivity(intent);
+                    //Intent intent = new Intent(getApplicationContext(), PatternActivity.class);
+                    //startActivity(intent);
                     finish();
                 } else {
                     Toast.makeText(InputPatternActivity.this, "Wrong pattern", Toast.LENGTH_SHORT).show();

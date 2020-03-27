@@ -55,11 +55,13 @@ public class MainActivity extends AppCompatActivity {
             Intent startPassphrase = new Intent(getApplicationContext(), PassphraseActivity.class);
             startActivity(startPassphrase);
         }
-        /*
+
         if (!pattern) {
             Intent startPattern = new Intent(getApplicationContext(), PatternActivity.class);
             startActivity(startPattern);
         }
+
+        /*
         if (!face) {
             Intent startFace = new Intent(getApplicationContext(), FaceActivity.class);
             startActivity(startFace);

@@ -20,6 +20,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.Toast;
 
 import com.brownwoodruff.biometricsecurity.CreatePatternActivity;
 import com.brownwoodruff.biometricsecurity.InputPatternActivity;
@@ -32,22 +33,21 @@ public class PatternActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pattern);
 
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                SharedPreferences preferences = getSharedPreferences("PREPS", 0);
-                String password = preferences.getString("password", "0");
-                if(password.equals("0")){
-                    Intent intent = new Intent(getApplicationContext(), CreatePatternActivity.class);
-                    startActivity(intent);
-                    finish();
-                } else {
-                    Intent intent = new Intent(getApplicationContext(), InputPatternActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-            }
-        }, 2000);
+        SharedPreferences preferences = getSharedPreferences("PREPS", 0);
+        String password = preferences.getString("password", "0");
+        if (!(password.equals("0"))) {
+            /*
+            Intent intent = new Intent(getApplicationContext(), CreatePatternActivity.class);
+            startActivity(intent);
+            finish();
+             */
+            Intent intent = new Intent(getApplicationContext(), InputPatternActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            Toast.makeText(getApplicationContext(), "No pattern saved.",
+                    Toast.LENGTH_SHORT).show();
+            finish();
+        }
     }
 }

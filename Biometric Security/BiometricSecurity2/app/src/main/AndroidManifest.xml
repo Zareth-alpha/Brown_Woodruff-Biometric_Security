@@ -33,6 +33,8 @@
         <activity android:name=".CreatePatternActivity"/>
         <activity android:name=".InputPatternActivity"/>
         <activity android:name=".ProgramActivity"/>
+        <activity android:name=".CreatePassphraseActivity" />
+        <activity android:name=".CreatePinActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

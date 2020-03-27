@@ -10,6 +10,7 @@
 * Intellectual contributions are from: Android Studio, Google, developer.android.com, Arizona State University,
 * and
 * Antinaa Murthy (https://proandroiddev.com/5-steps-to-implement-biometric-authentication-in-android-dbeb825aeee8)
+* Coding in Flow (https://codinginflow.com/tutorials/android/sharedpreferences)
 *
  */
 package com.brownwoodruff.biometricsecurity;
@@ -124,7 +125,7 @@ public class SettingsActivity extends AppCompatActivity {
                         alertDialog.show();
                 }
 
-                if (!(fingerSwitch.isChecked()) && !(patternSwitch.isChecked()) && !(faceSwitch.isChecked()) && !(phraseSwitch.isChecked()) && (pinSwitch.isChecked())) {
+                else if (!(fingerSwitch.isChecked()) && !(patternSwitch.isChecked()) && !(faceSwitch.isChecked()) && !(phraseSwitch.isChecked()) && (pinSwitch.isChecked())) {
                     //insert alert dialogue
                     //https://www.tutorialspoint.com/android/android_alert_dialoges.htm
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(SettingsActivity.this);
@@ -141,6 +142,7 @@ public class SettingsActivity extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int which) {
                             Toast.makeText(SettingsActivity.this, "Settings Saved", Toast.LENGTH_LONG).show();
                             /*Here the settings need to be saved!*/
+                            saveData();
                             finish();
                         }
                     });
@@ -148,9 +150,11 @@ public class SettingsActivity extends AppCompatActivity {
                     AlertDialog alertDialog = alertDialogBuilder.create();
                     alertDialog.show();
                 }
-                saveData();
-                Toast.makeText(SettingsActivity.this, "Settings Saved", Toast.LENGTH_LONG).show();
-                finish();
+                else {
+                    saveData();
+                    Toast.makeText(SettingsActivity.this, "Settings Saved", Toast.LENGTH_LONG).show();
+                    finish();
+                }
             }
         });
         loadData();

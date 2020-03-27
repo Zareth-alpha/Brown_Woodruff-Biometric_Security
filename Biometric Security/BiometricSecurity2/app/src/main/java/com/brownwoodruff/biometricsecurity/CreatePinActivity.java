@@ -15,17 +15,30 @@ package com.brownwoodruff.biometricsecurity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class PinActivity extends AppCompatActivity {
 
+public class CreatePinActivity extends AppCompatActivity{
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String TEXT = "text";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pin);
 
+        /*
+        If there's nothing saved...
+            create authentication pin...
+         */
+
+
+        /*
+        else authenticate
+            then create authentication pin...
+         */
         Button submit = findViewById(R.id.pinButton);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,5 +47,16 @@ public class PinActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+    public void saveData() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString(TEXT, textView.getText().toString());
+
+        editor.apply();
+    }
+    public void loadData() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
     }
 }
