@@ -22,6 +22,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/*NOTE: There are some repeat functions because I thought I could consolidate the functions from
+CreatePassphraseActivity.java into this one class. I don't remember why, but I came to the conclusion
+that I could not with the knowledge I currently hold of Java/Android programming.
+
+copy, delete, or whatever.
+
+This really is just to authenticate and tell the mainactivity that it's good.
+ */
+
+//Authentication: Let's just have these re-configure prompts authenticate the given prompt.
+//e.g. new pattern authenticates previous pattern, new phrase authenticates previous phrase.
+
 public class PassphraseActivity extends AppCompatActivity {
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String TEXT = "text";

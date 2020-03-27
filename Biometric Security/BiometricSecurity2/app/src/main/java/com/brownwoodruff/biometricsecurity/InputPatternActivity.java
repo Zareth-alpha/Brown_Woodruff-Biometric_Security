@@ -27,6 +27,9 @@ import com.andrognito.patternlockview.PatternLockView;
 import com.andrognito.patternlockview.listener.PatternLockViewListener;
 import com.andrognito.patternlockview.utils.PatternLockUtils;
 
+//NOTE: This is mostly done. I don't think I know any way that you would need to modify this.
+//Authentication: Let's just have these re-configure prompts authenticate the given prompt.
+//e.g. new pattern authenticates previous pattern, new phrase authenticates previous phrase.
 public class InputPatternActivity extends AppCompatActivity {
 
     PatternLockView mPatternLockView;

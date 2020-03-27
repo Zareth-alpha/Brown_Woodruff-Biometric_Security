@@ -20,6 +20,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+//This is practically a repeat of the passphrase class, however, it's just numbers.
+//While it's not very secure, lets not deal with input validation, unless we have more time.
 
 public class CreatePinActivity extends AppCompatActivity{
     public static final String SHARED_PREFS = "sharedPrefs";
@@ -52,6 +54,7 @@ public class CreatePinActivity extends AppCompatActivity{
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
+        //as soon as this is declared like in the passphrase activity, this error will go away.
         editor.putString(TEXT, textView.getText().toString());
 
         editor.apply();

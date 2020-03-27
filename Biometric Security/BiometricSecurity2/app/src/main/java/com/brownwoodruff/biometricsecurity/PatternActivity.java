@@ -26,6 +26,8 @@ import com.brownwoodruff.biometricsecurity.CreatePatternActivity;
 import com.brownwoodruff.biometricsecurity.InputPatternActivity;
 import com.brownwoodruff.biometricsecurity.R;
 
+
+//For some reason the pattern kept prompting over and over, but I fixed it somehow.
 public class PatternActivity extends AppCompatActivity {
 
     @Override

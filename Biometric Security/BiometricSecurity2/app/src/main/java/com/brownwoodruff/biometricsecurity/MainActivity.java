@@ -35,8 +35,12 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         }
 
+        //right now this is configured to happen when the button is pressed, but I figure we'll
+        //need some sort of other "listener" like function with the bluetooth connection.
     public void authenticate(View view){
         //check settings for which authentication methods are required.
+        //These are currently set for testing purposes. These variables should be set according to
+        //user preferences
         boolean face = false;
         boolean finger = false;
         boolean pattern = false;
@@ -62,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         /*
+        maybe we should just skip this and get back to it if we have time. Let's hope the instructor
+        lets us by with a C or something at the worst...
         if (!face) {
             Intent startFace = new Intent(getApplicationContext(), FaceActivity.class);
             startActivity(startFace);

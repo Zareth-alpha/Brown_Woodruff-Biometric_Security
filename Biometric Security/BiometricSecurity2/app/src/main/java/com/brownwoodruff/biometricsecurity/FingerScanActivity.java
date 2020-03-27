@@ -31,6 +31,8 @@ import android.widget.Toast;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+//This is done. It uses the system settings, so we do not need to handle creating new finger scans.
+
         //https://developer.android.com/training/sign-in/biometric-auth
 public class FingerScanActivity extends AppCompatActivity {
 

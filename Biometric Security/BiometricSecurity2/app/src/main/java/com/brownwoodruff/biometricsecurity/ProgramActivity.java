@@ -18,6 +18,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+//NOTE: I was following the tutorial, and changed it up a little bit. This is a useless activity,
+//but I don't want to deal with cleanup yet.
 public class ProgramActivity extends AppCompatActivity {
 
     @Override

@@ -160,6 +160,9 @@ public class SettingsActivity extends AppCompatActivity {
         loadData();
     }
 
+    //This function is very useful to show how the sharedPreferences class works. I think it's a
+    //simple dictionary object. Hence the put___(Stringobject1, object2). I copied this format
+    //for the passphrase and pin activities.
     public void saveData() {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -177,6 +180,9 @@ public class SettingsActivity extends AppCompatActivity {
         editor.apply();
     }
 
+    //You should use a function like this in the mainactivity to make sure that the correct
+    //authentication methods are called per the user's preferences.
+    //Is this a security risk? I don't know, I just want this functional.
     public void loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         faceSwitch.setChecked(sharedPreferences.getBoolean(SWITCH_FACE, false));

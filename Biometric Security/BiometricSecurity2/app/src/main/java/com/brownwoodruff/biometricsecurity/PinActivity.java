@@ -19,6 +19,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+//Just like the passphrase, I split this into "Create" and just the activity itself.
+//So this one needs to authenticate the pin.
+
 public class PinActivity extends AppCompatActivity {
 
     @Override

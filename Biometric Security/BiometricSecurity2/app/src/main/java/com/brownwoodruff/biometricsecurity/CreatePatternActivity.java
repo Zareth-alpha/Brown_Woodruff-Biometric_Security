@@ -28,6 +28,11 @@ import com.andrognito.patternlockview.utils.PatternLockUtils;
 
 import java.util.List;
 
+//This is mostly done as well, however it does need to be called when configuring settings.
+//If there is time, let's make sure there is a way to re-prompt this to change the pattern after
+//Authenticating.
+//Authentication: Let's just have these re-configure prompts authenticate the given prompt.
+//e.g. new pattern authenticates previous pattern, new phrase authenticates previous phrase.
 public class CreatePatternActivity extends AppCompatActivity {
 
     PatternLockView mPatternLockView;

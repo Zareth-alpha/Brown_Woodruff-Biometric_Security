@@ -5,6 +5,7 @@
  * DESCRIPTION: This is the about page info. Very simple.
  *
  *
+ *
  * Intellectual contributions are from: Android Studio, Google, developer.android.com, Arizona State University,
  * and
  * Antinaa Murthy (https://proandroiddev.com/5-steps-to-implement-biometric-authentication-in-android-dbeb825aeee8)
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+//This is done.
 public class About_Page extends AppCompatActivity {
 
     @Override
