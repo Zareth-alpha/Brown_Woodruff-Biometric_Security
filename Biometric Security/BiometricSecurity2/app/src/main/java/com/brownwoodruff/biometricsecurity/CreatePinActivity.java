@@ -13,9 +13,12 @@
  */
 package com.brownwoodruff.biometricsecurity;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Notification;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -50,11 +53,13 @@ public class CreatePinActivity extends AppCompatActivity{
             }
         });
     }
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void saveData() {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         //as soon as this is declared like in the passphrase activity, this error will go away.
+        Notification.MessagingStyle.Message textView = null;
         editor.putString(TEXT, textView.getText().toString());
 
         editor.apply();

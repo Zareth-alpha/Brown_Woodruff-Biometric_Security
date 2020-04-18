@@ -65,14 +65,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(startPattern);
         }
 
-        /*
-        maybe we should just skip this and get back to it if we have time. Let's hope the instructor
-        lets us by with a C or something at the worst...
-        if (!face) {
-            Intent startFace = new Intent(getApplicationContext(), FaceActivity.class);
+        if (sharedPreferences.getBoolean(SWITCH_FACE , false)) {
+           Intent startFace = new Intent(getApplicationContext(), FaceActivity.class);
             startActivity(startFace);
+
         }
-         */
+
     }
 
         //check if there are any saved configurations.
