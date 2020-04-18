@@ -18,6 +18,7 @@ package com.brownwoodruff.biometricsecurity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -48,10 +49,23 @@ public class SettingsActivity extends AppCompatActivity {
     private Switch patternSwitch;
     private Switch pinSwitch;
 
+    private Button pinButton2;
+    private Button passPhraseButton;
+    private Button patternButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        //This button needs to be here to leech off the onCreate Bundle above
+        pinButton2 = findViewById(R.id.pinButton);
+        pinButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPinActivity();
+            }
+        });
 
         // initiate view's
         //https://abhiandroid.com/ui/switch
@@ -63,6 +77,8 @@ public class SettingsActivity extends AppCompatActivity {
         faceSwitch = findViewById(R.id.faceSwitch);
         patternSwitch = findViewById(R.id.patternSwitch);
         pinSwitch = findViewById(R.id.pinSwitch);
+
+
 
 
         Button saveSettings = findViewById(R.id.saveSettings);
@@ -97,6 +113,8 @@ public class SettingsActivity extends AppCompatActivity {
                 }
             }
         });
+
+
         //alerts the user about invalid settings. One of the authentications needs to be met.
         saveSettings.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -155,12 +173,18 @@ public class SettingsActivity extends AppCompatActivity {
                     Toast.makeText(SettingsActivity.this, "Settings Saved", Toast.LENGTH_LONG).show();
                     finish();
                 }
+
+
+
+
+
             }
         });
         loadData();
     }
 
-    //This function is very useful to show how the sharedPreferences class works. I think it's a
+
+        //This function is very useful to show how the sharedPreferences class works. I think it's a
     //simple dictionary object. Hence the put___(Stringobject1, object2). I copied this format
     //for the passphrase and pin activities.
     public void saveData() {
@@ -194,4 +218,44 @@ public class SettingsActivity extends AppCompatActivity {
         phraseSwitch.setChecked(sharedPreferences.getBoolean(SWITCH_PHRASE, false));
         linuxSwitch.setChecked(sharedPreferences.getBoolean(SWITCH_LINUX, false));
     }
+
+    public void openPinActivity() {
+        Intent pin = new Intent(this, CreatePinActivity.class);
+        startActivity(pin);
+
+        passPhraseButton = findViewById(R.id.passphraseButton);
+        passPhraseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPassPhraseActivity();
+            }
+        });
+    }
+
+    public void openPassPhraseActivity() {
+        Intent passPhrase = new Intent(this, CreatePassphraseActivity.class);
+        startActivity(passPhrase);
+
+        patternButton = findViewById(R.id.patternButton);
+        patternButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPatternActivity();
+            }
+        });
+    }
+
+    public void openPatternActivity() {
+        Intent pattern = new Intent(this, CreatePatternActivity.class);
+        pattern.putExtra ("ENABLE", "YES");
+        startActivity(pattern);
+
+
+    }
 }
+
+//In the XML for this file, I had to swap finger scan and face scan due to the fingerscan activity
+//not working properly, yet the face scan activity is what prompts the thumbprint.
+//What is happening is the face activity deals with biometrics in general with the ability to
+//do fingerscan. Face scan altogether is difficult to test due to the emulators available to us
+//not being new enough to test.

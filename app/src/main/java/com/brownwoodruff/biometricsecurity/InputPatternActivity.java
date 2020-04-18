@@ -59,6 +59,7 @@ public class InputPatternActivity extends AppCompatActivity {
             @Override
             public void onComplete(List<PatternLockView.Dot> pattern) {
                 if(password.equals(PatternLockUtils.patternToString(mPatternLockView, pattern))){
+                    //These next two lines were commented out
                     //Intent intent = new Intent(getApplicationContext(), PatternActivity.class);
                     //startActivity(intent);
                     finish();

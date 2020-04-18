@@ -119,7 +119,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="#FFC107"
-        android:text="@string/faceSwitch"
+        android:text="@string/fingerSwitch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -130,11 +130,44 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="#009688"
-        android:text="@string/fingerSwitch"
+        android:text="@string/faceSwitch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AuthenticationHeader" />
+
+    <Button
+        android:id="@+id/pinButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Configure Pin"
+        app:layout_constraintBottom_toBottomOf="@id/pinSwitch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.804" />
+
+    <Button
+        android:id="@+id/patternButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Configure Pattern"
+        app:layout_constraintBottom_toBottomOf="@id/pinSwitch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.599" />
+
+    <Button
+        android:id="@+id/passphraseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Configure Pass Phrase"
+        app:layout_constraintBottom_toBottomOf="@id/pinSwitch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.403" />
 
     <Button
         android:id="@+id/saveSettings"
@@ -143,6 +176,9 @@
         android:text="@string/saveSettings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pinSwitch" />
+        app:layout_constraintTop_toBottomOf="@+id/pinSwitch"
+        app:layout_constraintVertical_bias="0.927" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

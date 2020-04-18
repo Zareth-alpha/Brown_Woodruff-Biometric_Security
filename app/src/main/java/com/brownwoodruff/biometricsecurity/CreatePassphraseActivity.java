@@ -75,6 +75,7 @@ public class CreatePassphraseActivity extends AppCompatActivity {
                 finish();
             }
         });
+    saveData();
     }
 
 
@@ -103,6 +104,9 @@ public class CreatePassphraseActivity extends AppCompatActivity {
 
         //grab user input from editText
         //save the input.
+
+
+
     }
 
     //I'm just storing these in plaintext. I know it's not secure, but it'll get this app functional
