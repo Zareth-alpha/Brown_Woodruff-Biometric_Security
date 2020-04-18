@@ -15,24 +15,35 @@ package com.brownwoodruff.biometricsecurity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 //Just like the passphrase, I split this into "Create" and just the activity itself.
 //So this one needs to authenticate the pin.
 
 public class PinActivity extends AppCompatActivity {
 
+    int pinText;
+
+    EditText pinInput;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pin);
 
-        Button submit = findViewById(R.id.pinButton);
-        submit.setOnClickListener(new View.OnClickListener() {
+        pinInput = findViewById(R.id.pinInput);
+
+        Button pinButton = findViewById(R.id.pinButton);
+        pinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                pinText = Integer.valueOf(pinText);
 
                 finish();
             }

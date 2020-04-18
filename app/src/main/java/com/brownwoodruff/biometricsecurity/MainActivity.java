@@ -15,17 +15,31 @@
 package com.brownwoodruff.biometricsecurity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Switch;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String TEXT = "text";
+    public static final String SWITCH_LINUX = "switchLinux";
+    public static final String SWITCH_KEE = "switchKee";
+    public static final String SWITCH_FIRE = "switchFire";
+    public static final String SWITCH_FINGER = "switchFinger";
+    public static final String SWITCH_PHRASE = "switchPhrase";
+    public static final String SWITCH_FACE = "switchFace";
+    public static final String SWITCH_PATTERN = "switchPattern";
+    public static final String SWITCH_PIN = "switchPin";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,34 +47,32 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        }
+    }
 
         //right now this is configured to happen when the button is pressed, but I figure we'll
         //need some sort of other "listener" like function with the bluetooth connection.
     public void authenticate(View view){
-        //check settings for which authentication methods are required.
-        //These are currently set for testing purposes. These variables should be set according to
-        //user preferences
-        boolean face = false;
-        boolean finger = false;
-        boolean pattern = false;
-        boolean pin = false;
-        boolean passphrase = false;
-
-        if (!finger) {
+        //This gathers the shared Preferences for the settings page.
+        //The boolean values for the authentication were removed since it was redundant to include
+        // them when they were called only once.
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        //Instead of using 'finger' 'pin' etc. in the if statement (these strings were only called
+        //right here, which adds an extra step. These if statements get the values straight from the
+        //source.
+        if (sharedPreferences.getBoolean(SWITCH_FINGER , false)) {
             Intent startFingerScan = new Intent(getApplicationContext(), FingerScanActivity.class);
             startActivity(startFingerScan);
         }
-        if (!pin) {
+        if (sharedPreferences.getBoolean(SWITCH_PIN , false)) {
             Intent startPin = new Intent(getApplicationContext(), PinActivity.class);
             startActivity(startPin);
         }
-        if (!passphrase) {
+        if (sharedPreferences.getBoolean(SWITCH_PHRASE , false)) {
             Intent startPassphrase = new Intent(getApplicationContext(), PassphraseActivity.class);
             startActivity(startPassphrase);
         }
 
-        if (!pattern) {
+        if (sharedPreferences.getBoolean(SWITCH_PATTERN , false)) {
             Intent startPattern = new Intent(getApplicationContext(), PatternActivity.class);
             startActivity(startPattern);
         }
@@ -72,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
 
         //check if there are any saved configurations.
             //initial configurations
@@ -109,5 +122,7 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+
+
     }
 }
