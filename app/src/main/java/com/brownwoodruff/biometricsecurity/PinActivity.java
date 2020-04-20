@@ -43,17 +43,16 @@ public class PinActivity extends AppCompatActivity {
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
-
                 Intent i = getIntent();
                 in = getIntent().getExtras().getInt("Value");
-                if (i.hasExtra("Value")) {
-                finish();
-                } else {
-                    Toast.makeText(getApplicationContext(), "No pattern saved.",
+                if (PinInput.equals(i.hasExtra("Value"))) {
+                    Toast.makeText(PinActivity.this, "Pin Matches.",
                             Toast.LENGTH_SHORT).show();
+                    finish();
+                } else {
+                    Toast.makeText(PinActivity.this, "Pin does not match.",
+                            Toast.LENGTH_SHORT).show();
+
                     finish();
                 }
             }
