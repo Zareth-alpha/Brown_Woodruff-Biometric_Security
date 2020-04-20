@@ -31,10 +31,6 @@ import android.widget.Switch;
 public class MainActivity extends AppCompatActivity {
 
     public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String TEXT = "text";
-    public static final String SWITCH_LINUX = "switchLinux";
-    public static final String SWITCH_KEE = "switchKee";
-    public static final String SWITCH_FIRE = "switchFire";
     public static final String SWITCH_FINGER = "switchFinger";
     public static final String SWITCH_PHRASE = "switchPhrase";
     public static final String SWITCH_FACE = "switchFace";

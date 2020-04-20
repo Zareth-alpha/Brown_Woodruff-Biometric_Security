@@ -28,25 +28,38 @@ import android.widget.Toast;
 
 public class PinActivity extends AppCompatActivity {
 
-    int pinText;
-
-    EditText pinInput;
+    Button Submit;
+    EditText PinInput;
+    int in;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pin);
+        setContentView(R.layout.activity_input_pin);
 
-        pinInput = findViewById(R.id.pinInput);
+        Submit = findViewById(R.id.pinButton);
+        PinInput = findViewById(R.id.pinInput);
 
-        Button pinButton = findViewById(R.id.pinButton);
-        pinButton.setOnClickListener(new View.OnClickListener() {
+        Submit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                pinText = Integer.valueOf(pinText);
+            public void onClick(View v) {
 
+
+
+
+                Intent i = getIntent();
+                in = getIntent().getExtras().getInt("Value");
+                if (i.hasExtra("Value")) {
                 finish();
+                } else {
+                    Toast.makeText(getApplicationContext(), "No pattern saved.",
+                            Toast.LENGTH_SHORT).show();
+                    finish();
+                }
             }
         });
+
+
+
     }
 }

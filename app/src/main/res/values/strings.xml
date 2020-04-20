@@ -33,5 +33,7 @@
     <string name="authenticate">Authenticate</string>
     <string name="create_pattern">Please enter a pattern to save.</string>
     <string name="input_pattern">Please enter your pattern.</string>
+    <string name="enter_preferred_pin">Enter Preferred Pin</string>
+    <string name="enter_pin">Enter Your Pin</string>
 
 </resources>

@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:background="#C4DFEC"
         android:ems="10"
-        android:hint="@string/enter_preferred_pin"
+        android:hint="@string/enter_pin"
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/pinButton"
         app:layout_constraintEnd_toEndOf="parent"
