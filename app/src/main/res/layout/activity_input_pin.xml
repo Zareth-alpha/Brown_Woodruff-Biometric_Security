@@ -7,7 +7,7 @@
     tools:context=".PinActivity">
 
     <Button
-        android:id="@+id/pinButton"
+        android:id="@+id/yourButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#2196F3"
@@ -16,31 +16,31 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pinInput" />
+        app:layout_constraintTop_toBottomOf="@+id/yourPin" />
 
     <TextView
         android:id="@+id/pinActivityTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#C4DFEC"
-        android:text="@string/enter_your_pin"
+        android:text="@string/enter_your_preferred_pin"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/pinInput"
+        app:layout_constraintBottom_toTopOf="@+id/yourPin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.528" />
 
     <EditText
-        android:id="@+id/pinInput"
+        android:id="@+id/yourPin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#C4DFEC"
         android:ems="10"
         android:hint="@string/enter_pin"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/pinButton"
+        app:layout_constraintBottom_toTopOf="@+id/yourButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pinActivityTitle"

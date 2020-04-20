@@ -35,5 +35,8 @@
     <string name="input_pattern">Please enter your pattern.</string>
     <string name="enter_preferred_pin">Enter Preferred Pin</string>
     <string name="enter_pin">Enter Your Pin</string>
+    <string name="create_your_preferred_pin">Create Your Preferred Pin</string>
+    <string name="create_preferred_pin">Create Preferred Pin</string>
+    <string name="enter_your_preferred_pin">Enter Your Preferred Pin</string>
 
 </resources>

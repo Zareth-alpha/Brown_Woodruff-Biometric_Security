@@ -31,12 +31,10 @@ import android.widget.EditText;
 //While it's not very secure, lets not deal with input validation, unless we have more time.
 
 public class CreatePinActivity extends AppCompatActivity{
-    public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String TEXT = "text";
 
     Button Submit;
     EditText PinInput;
-    int in;
+    String pin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,18 +47,16 @@ public class CreatePinActivity extends AppCompatActivity{
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(CreatePinActivity.this, PinActivity.class);
-                in = Integer.parseInt(PinInput.getText().toString());
-                i.putExtra("Value", in);
-                startActivity(i);
+                Intent setPin = new Intent(CreatePinActivity.this, PinActivity.class);
+                Intent mainPin = new Intent(CreatePinActivity.this, MainActivity.class);
+                pin = PinInput.getText().toString();
+                setPin.putExtra("pinValue", pin);
+                mainPin.putExtra("pinValue", pin);
+                startActivity(setPin);
                 finish();
-            }
-        });
-
 
                 }
 
-            }
-
-
-
+            });
+        }
+    }

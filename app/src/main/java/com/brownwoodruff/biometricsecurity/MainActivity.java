@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String SWITCH_PATTERN = "switchPattern";
     public static final String SWITCH_PIN = "switchPin";
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 //Just like the passphrase, I split this into "Create" and just the activity itself.
@@ -28,32 +29,29 @@ import android.widget.Toast;
 
 public class PinActivity extends AppCompatActivity {
 
-    Button Submit;
-    EditText PinInput;
-    int in;
+    Button yourButton;
+    EditText yourPin;
+    String pin;
+    String pin2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_pin);
 
-        Submit = findViewById(R.id.pinButton);
-        PinInput = findViewById(R.id.pinInput);
+        yourButton = findViewById(R.id.yourButton);
+        yourPin = findViewById(R.id.yourPin);
 
-        Submit.setOnClickListener(new View.OnClickListener() {
+        yourButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = getIntent();
-                in = getIntent().getExtras().getInt("Value");
-                if (PinInput.equals(i.hasExtra("Value"))) {
-                    Toast.makeText(PinActivity.this, "Pin Matches.",
-                            Toast.LENGTH_SHORT).show();
+                pin = getIntent().getExtras().getString("pinValue");
+                pin2 = yourPin.getText().toString();
+                if (pin2.equals(pin)){
+                    Toast.makeText(PinActivity.this, "Pin Entered Correctly", Toast.LENGTH_SHORT).show();
                     finish();
                 } else {
-                    Toast.makeText(PinActivity.this, "Pin does not match.",
-                            Toast.LENGTH_SHORT).show();
-
-                    finish();
+                    Toast.makeText(PinActivity.this, "Pin Incorrect", Toast.LENGTH_SHORT).show();
                 }
             }
         });
