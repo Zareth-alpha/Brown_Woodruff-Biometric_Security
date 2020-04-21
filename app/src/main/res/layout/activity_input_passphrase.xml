@@ -7,7 +7,7 @@
     tools:context=".PassphraseActivity">
 
     <Button
-        android:id="@+id/passphraseButton"
+        android:id="@+id/passphraseYourButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#2196F3"
@@ -17,32 +17,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passphraseInput" />
+        app:layout_constraintTop_toBottomOf="@+id/passphraseYourInput" />
 
     <TextView
         android:id="@+id/passActivityTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#C4DFEC"
-        android:text="@string/create_your_preferred_passphrase"
+        android:text="@string/enter_the_passphrase"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/passphraseButton"
+        app:layout_constraintBottom_toTopOf="@+id/passphraseYourButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.299" />
 
     <EditText
-        android:id="@+id/passphraseInput"
+        android:id="@+id/passphraseYourInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="76dp"
         android:autofillHints=""
         android:background="#C4DFEC"
         android:ems="10"
-        android:hint="@string/enter_new_passphrase"
-        app:layout_constraintBottom_toTopOf="@+id/passphraseButton"
+        android:hint="@string/enter_passphrase"
+        app:layout_constraintBottom_toTopOf="@+id/passphraseYourButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passActivityTitle" />

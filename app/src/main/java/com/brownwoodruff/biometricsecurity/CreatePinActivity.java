@@ -26,6 +26,7 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 //This is practically a repeat of the passphrase class, however, it's just numbers.
 //While it's not very secure, lets not deal with input validation, unless we have more time.
@@ -34,7 +35,6 @@ public class CreatePinActivity extends AppCompatActivity{
 
     Button Submit;
     EditText PinInput;
-    String pin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,16 +43,15 @@ public class CreatePinActivity extends AppCompatActivity{
 
         Submit = findViewById(R.id.pinButton);
         PinInput = findViewById(R.id.pinInput);
+        final String SHARED_PREFS = "sharedPrefs";
 
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent setPin = new Intent(CreatePinActivity.this, PinActivity.class);
-                Intent mainPin = new Intent(CreatePinActivity.this, MainActivity.class);
-                pin = PinInput.getText().toString();
-                setPin.putExtra("pinValue", pin);
-                mainPin.putExtra("pinValue", pin);
-                startActivity(setPin);
+                SharedPreferences.Editor editor = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE).edit();
+                editor.putString("secretPin", PinInput.getText().toString());
+                editor.apply();
+                Toast.makeText(CreatePinActivity.this, "Saved Pin", Toast.LENGTH_SHORT).show();
                 finish();
 
                 }

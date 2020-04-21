@@ -31,8 +31,7 @@ public class PinActivity extends AppCompatActivity {
 
     Button yourButton;
     EditText yourPin;
-    String pin;
-    String pin2;
+    String pinToAuthenticate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +44,9 @@ public class PinActivity extends AppCompatActivity {
         yourButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pin = getIntent().getExtras().getString("pinValue");
-                pin2 = yourPin.getText().toString();
-                if (pin2.equals(pin)){
+                SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+                pinToAuthenticate = yourPin.getText().toString();
+                if (pinToAuthenticate.equals(sharedPreferences.getString("secretPin", ""))){
                     Toast.makeText(PinActivity.this, "Pin Entered Correctly", Toast.LENGTH_SHORT).show();
                     finish();
                 } else {
