@@ -17,54 +17,45 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Notification;
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 //This is practically a repeat of the passphrase class, however, it's just numbers.
 //While it's not very secure, lets not deal with input validation, unless we have more time.
 
 public class CreatePinActivity extends AppCompatActivity{
-    public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String TEXT = "text";
+
+    Button Submit;
+    EditText PinInput;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pin);
 
-        /*
-        If there's nothing saved...
-            create authentication pin...
-         */
+        Submit = findViewById(R.id.pinButton);
+        PinInput = findViewById(R.id.pinInput);
+        final String SHARED_PREFS = "sharedPrefs";
 
-
-        /*
-        else authenticate
-            then create authentication pin...
-         */
-        Button submit = findViewById(R.id.pinButton);
-        submit.setOnClickListener(new View.OnClickListener() {
+        Submit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE).edit();
+                editor.putString("secretPin", PinInput.getText().toString());
+                editor.apply();
+                Toast.makeText(CreatePinActivity.this, "Saved Pin", Toast.LENGTH_SHORT).show();
                 finish();
-            }
-        });
-    }
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    public void saveData() {
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        //as soon as this is declared like in the passphrase activity, this error will go away.
-        Notification.MessagingStyle.Message textView = null;
-        editor.putString(TEXT, textView.getText().toString());
+                }
 
-        editor.apply();
+            });
+        }
     }
-    public void loadData() {
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-    }
-}

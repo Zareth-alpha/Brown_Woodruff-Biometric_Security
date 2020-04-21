@@ -33,5 +33,17 @@
     <string name="authenticate">Authenticate</string>
     <string name="create_pattern">Please enter a pattern to save.</string>
     <string name="input_pattern">Please enter your pattern.</string>
+    <string name="enter_preferred_pin">Enter Preferred Pin</string>
+    <string name="enter_pin">Enter Your Pin</string>
+    <string name="create_your_preferred_pin">Create Your Preferred Pin</string>
+    <string name="create_preferred_pin">Create Preferred Pin</string>
+    <string name="enter_your_preferred_pin">Enter Your Preferred Pin</string>
+    <string name="create_your_passphrase">Create Your PassPhrase</string>
+    <string name="create_passphrase">Create PassPhrase</string>
+
+    <string name="create_your_preferred_passphrase">Create Your Preferred PassPhrase</string>
+    <string name="enter_the_passphrase">Enter the PassPhrase</string>
+    <string name="enter_passphrase">Enter PassPhrase</string>
+    <string name="enter_new_passphrase">Enter New Passphrase</string>
 
 </resources>

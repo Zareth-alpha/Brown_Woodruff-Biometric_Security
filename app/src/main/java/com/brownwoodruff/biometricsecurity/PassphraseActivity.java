@@ -35,72 +35,45 @@ This really is just to authenticate and tell the mainactivity that it's good.
 //e.g. new pattern authenticates previous pattern, new phrase authenticates previous phrase.
 
 public class PassphraseActivity extends AppCompatActivity {
-    public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String TEXT = "text";
 
-    private TextView textView;
-    private EditText editText;
-    private String current;
-    private String newPhrase;
+    Button passphraseYourButton;
+    EditText passphraseYourInput;
+    String passToAuthenticate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_passphrase);
+        setContentView(R.layout.activity_input_passphrase);
 
-        editText = findViewById(R.id.editTextPassphrase);
-        textView = findViewById(R.id.passActivityTitle);
+        passphraseYourButton = findViewById(R.id.passphraseYourButton);
+        passphraseYourInput = findViewById(R.id.passphraseYourInput);
 
-        /*
-        If there's nothing saved...
-            create authentication phrase...
-         */
-
-
-        /*
-        else authenticate
-            then create authentication phrase...
-         */
-        Button submit = findViewById(R.id.buttonPhrase);
-
-        submit.setOnClickListener(new View.OnClickListener() {
+        passphraseYourButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+                passToAuthenticate = passphraseYourInput.getText().toString();
+                if (passToAuthenticate.equals(sharedPreferences.getString("secretPass", ""))){
+                    Toast.makeText(PassphraseActivity.this, "Passphrase Entered Correctly", Toast.LENGTH_SHORT).show();
+                    finish();
+                } else {
+                    Toast.makeText(PassphraseActivity.this, "Passphrase Incorrect", Toast.LENGTH_SHORT).show();
+                }
 
-                finish();
             }
         });
     }
 
 
-    //Save the text data entered into the editText line of the activity.
-    private void saveData() {
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putString(TEXT, editText.getText().toString());
 
-        editor.apply();
-        Toast.makeText(this, "Data saved", Toast.LENGTH_SHORT).show();
     }
 
-    //load the saved password. Not very secure.
-    private String loadData() {
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        return sharedPreferences.getString(TEXT, "");
-    }
 
-    //Change the textView based on whether the user is updating the password or
-    //authenticating the password.
-    private void updateViews() {
-    }
 
-    public Boolean authenticate() {
-        Boolean authentication = false;
-        String test = editText.getText().toString();
-        if(test.equals(loadData())) {
-            authentication = true;
-        }
-        return authentication;
-    }
-}
+
+
+
+
+
+

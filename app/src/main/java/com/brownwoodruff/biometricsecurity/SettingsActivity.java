@@ -67,6 +67,21 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.passphraseButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPassPhraseActivity();
+            }
+        });
+
+        findViewById(R.id.patternButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPatternActivity();
+            }
+        });
+
+
         // initiate view's
         //https://abhiandroid.com/ui/switch
         keeSwitch = findViewById(R.id.KeePassXCSwitch);
@@ -223,26 +238,13 @@ public class SettingsActivity extends AppCompatActivity {
         Intent pin = new Intent(this, CreatePinActivity.class);
         startActivity(pin);
 
-        passPhraseButton = findViewById(R.id.passphraseButton);
-        passPhraseButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openPassPhraseActivity();
-            }
-        });
+
     }
 
     public void openPassPhraseActivity() {
         Intent passPhrase = new Intent(this, CreatePassphraseActivity.class);
         startActivity(passPhrase);
 
-        patternButton = findViewById(R.id.patternButton);
-        patternButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openPatternActivity();
-            }
-        });
     }
 
     public void openPatternActivity() {

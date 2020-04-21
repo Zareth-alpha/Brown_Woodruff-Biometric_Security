@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 //Just like the passphrase, I split this into "Create" and just the activity itself.
@@ -28,25 +29,33 @@ import android.widget.Toast;
 
 public class PinActivity extends AppCompatActivity {
 
-    int pinText;
-
-    EditText pinInput;
+    Button yourButton;
+    EditText yourPin;
+    String pinToAuthenticate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pin);
+        setContentView(R.layout.activity_input_pin);
 
-        pinInput = findViewById(R.id.pinInput);
+        yourButton = findViewById(R.id.yourButton);
+        yourPin = findViewById(R.id.yourPin);
 
-        Button pinButton = findViewById(R.id.pinButton);
-        pinButton.setOnClickListener(new View.OnClickListener() {
+        yourButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                pinText = Integer.valueOf(pinText);
-
-                finish();
+            public void onClick(View v) {
+                SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+                pinToAuthenticate = yourPin.getText().toString();
+                if (pinToAuthenticate.equals(sharedPreferences.getString("secretPin", ""))){
+                    Toast.makeText(PinActivity.this, "Pin Entered Correctly", Toast.LENGTH_SHORT).show();
+                    finish();
+                } else {
+                    Toast.makeText(PinActivity.this, "Pin Incorrect", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+
+
+
     }
 }

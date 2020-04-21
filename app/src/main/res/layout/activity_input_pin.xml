@@ -4,48 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreatePassphraseActivity">
+    tools:context=".PinActivity">
 
     <Button
-        android:id="@+id/passphraseButton"
+        android:id="@+id/yourButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#2196F3"
-        android:clickable="true"
         android:text="@string/submit"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passphraseInput"
-        android:focusable="true" />
+        app:layout_constraintTop_toBottomOf="@+id/yourPin" />
 
     <TextView
-        android:id="@+id/passActivityTitle"
+        android:id="@+id/pinActivityTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#C4DFEC"
-        android:text="@string/create_your_preferred_passphrase"
+        android:text="@string/enter_your_preferred_pin"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/passphraseButton"
+        app:layout_constraintBottom_toTopOf="@+id/yourPin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.299" />
+        app:layout_constraintVertical_bias="0.528" />
 
     <EditText
-        android:id="@+id/passphraseInput"
+        android:id="@+id/yourPin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="76dp"
-        android:autofillHints=""
         android:background="#C4DFEC"
         android:ems="10"
-        android:hint="@string/enter_new_passphrase"
-        app:layout_constraintBottom_toTopOf="@+id/passphraseButton"
+        android:hint="@string/enter_pin"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/yourButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passActivityTitle" />
-
+        app:layout_constraintTop_toBottomOf="@+id/pinActivityTitle"
+        android:autofillHints="" />
 </androidx.constraintlayout.widget.ConstraintLayout>
