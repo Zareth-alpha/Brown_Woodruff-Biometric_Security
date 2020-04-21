@@ -43,7 +43,7 @@ public class PassphraseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_passphrase);
+        setContentView(R.layout.activity_input_passphrase);
 
         passphraseYourButton = findViewById(R.id.passphraseYourButton);
         passphraseYourInput = findViewById(R.id.passphraseYourInput);
