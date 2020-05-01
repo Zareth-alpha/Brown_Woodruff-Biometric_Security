@@ -10,10 +10,11 @@
  * Intellectual contributions are from: Android Studio, Google, developer.android.com, Arizona State University,
  * and
  * Antinaa Murthy (https://proandroiddev.com/5-steps-to-implement-biometric-authentication-in-android-dbeb825aeee8)
- *
+ * CodingWithMitch: https://www.youtube.com/watch?v=sifzY2SA1XU
  */
 package com.brownwoodruff.biometricsecurity;
 
+import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -28,6 +29,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Switch;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.util.UUID;
+
 public class MainActivity extends AppCompatActivity {
 
     public static final String SHARED_PREFS = "sharedPrefs";
@@ -36,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
     public static final String SWITCH_FACE = "switchFace";
     public static final String SWITCH_PATTERN = "switchPattern";
     public static final String SWITCH_PIN = "switchPin";
+    public static final String TAG ="MainActivity";
+
+    BluetoothService mBluetooth;
+    private static final UUID APP_UUID = UUID.fromString("ce4a0e9f-cd18-4d88-8db6-84bb9781e95d");
+    BluetoothDevice mBTDevice;
 
 
 
@@ -45,6 +55,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+    }
+
+    // Connection will fail and app will crash if you have not paired first!
+    public void startBTConnection(BluetoothDevice device, UUID uuid){
+        Log.d(TAG, "startBTConnection: Initializing RFCOMM Bluetooth Connection.");
+
+        mBluetooth.startClient(device, uuid);
+    }
+
+    //Yes this is a repeat of the above. I wonder why he did a wrapper, and want to see if this
+    //works - JB 4/30
+    public void startConnection(){
+        Log.d(TAG, "startBTConnection: Initializing RFCOMM Bluetooth Connection.");
+
+        mBluetooth.startClient(mBTDevice, APP_UUID);
+    }
+
+    public void bluetoothSend(String message) throws IOException {
+        byte[] bytes = message.getBytes(Charset.defaultCharset());
+        mBluetooth.write(bytes);
     }
 
         //right now this is configured to happen when the button is pressed, but I figure we'll
