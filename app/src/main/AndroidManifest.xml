@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -17,13 +18,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".DeviceListAdapter"></activity>
         <activity android:name=".PatternActivity" />
         <activity android:name=".FingerScanActivity" />
         <activity android:name=".PinActivity" />
         <activity android:name=".PassphraseActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".About_Page" />
-        <activity android:name=".FaceActivity"/>
+        <activity android:name=".FaceActivity" />
         <activity android:name=".BluetoothService" />
         <activity
             android:name=".MainActivity"
@@ -35,9 +37,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreatePatternActivity"/>
-        <activity android:name=".InputPatternActivity"/>
-        <activity android:name=".ProgramActivity"/>
+        <activity android:name=".CreatePatternActivity" />
+        <activity android:name=".InputPatternActivity" />
+        <activity android:name=".ProgramActivity" />
         <activity android:name=".CreatePassphraseActivity" />
         <activity android:name=".CreatePinActivity" />
 

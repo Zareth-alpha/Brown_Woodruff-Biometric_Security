@@ -11,7 +11,7 @@ Intellectual ideas come from:
 https://developer.android.com/guide/topics/connectivity/bluetooth
 https://stackoverflow.com/questions/22899475/android-sample-bluetooth-code-to-send-a-simple-string-via-bluetooth
 https://github.com/googlearchive/android-BluetoothChat
-https://www.youtube.com/watch?v=Fz_GT7VGGaQ
+Mitch Tabian: https://www.youtube.com/watch?v=Fz_GT7VGGaQ
  */
 package com.brownwoodruff.biometricsecurity;
 
@@ -135,8 +135,9 @@ public class BluetoothService extends AppCompatActivity {
             }
 
             mSocket = tmp;
-
-            mBluetoothAdapter.cancelDiscovery();
+            if(mBluetoothAdapter.isDiscovering()) {
+                mBluetoothAdapter.cancelDiscovery();
+            }
 
             try {
                 // This blocking call will only return a successful connection or an exception.
@@ -195,9 +196,12 @@ public class BluetoothService extends AppCompatActivity {
     public void startClient (BluetoothDevice device, UUID uuid) {
         Log.d(TAG, "startClient: Started.");
 
+        /*
+
         //initprogress dialog, lets user know it's establishing a connection.
         mProgressDialog = ProgressDialog.show(mContext, "Connecting Bluetooth",
                 "Please Wait...", true);
+                */
         mConnectThread = new ConnectThread(device, uuid);
     }
 
@@ -212,14 +216,16 @@ public class BluetoothService extends AppCompatActivity {
             mSocket = socket;
             InputStream tmpIn = null;
             OutputStream tmpOut = null;
-
-            //dismiss the progressdialog box when connection is established.
+/*
+            // the progressdialog box when connection is established.
             try {
                 mProgressDialog.dismiss();
             } catch (NullPointerException e) {
                 Log.e(TAG, "ConnectedThread: Constructor, nullpointer exception when" +
                         " dismissing ProgressDialog.");
             }
+
+ */
 
             try {
                 tmpIn = mSocket.getInputStream();
